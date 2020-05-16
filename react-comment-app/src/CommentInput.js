@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react';   // 按需加载es6
 
 
 class CommentInput extends Component {
@@ -49,9 +49,12 @@ class CommentInput extends Component {
         })
     }
     handleSubmit() {
-        console.log(this.state);
+        // console.log(this.state);
         const {username,content} = this.state;
-        this.props.onSubmit({username,content});
+        const { onSubmit } = this.props;
+        console.log(this.props,"===");
+        // 通过 props 调用 传入的onSubmit函数 
+        onSubmit({username,content});
         this.setState({
             content:''
         })
