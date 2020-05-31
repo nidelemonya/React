@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// 1.
+
 // class LikeButton extends Component {
 //   static defaultProps = {
 //     likedText: '取消',
@@ -67,48 +69,159 @@ import * as serviceWorker from './serviceWorker';
 
 
 
+// 2.
+
+// const users = [
+//   { username: 'Jerry', age: 21, gender: 'male' },
+//   { username: 'Tomy', age: 22, gender: 'male' },
+//   { username: 'Lily', age: 19, gender: 'female' },
+//   { username: 'Lucy', age: 20, gender: 'female' }
+// ]
+
+// class User extends Component {
+//   render () {
+//     const { user } = this.props;
+//     return (
+//       <div>
+//         <div>姓名：{user.username}</div>
+//         <div>年龄：{user.age}</div>
+//         <div>性别：{user.gender}</div>
+//         <hr />
+//       </div>
+//     )
+//   }
+// }
+
+// class Index extends Component {
+//   render () {
+//     return (
+//       <div>
+//         {/* 通过 props 把 user 数据作为组件的配置参数传进去 */}
+//         {users.map((user,i) => <User key={i} user={user} />)}
+//       </div>
+//     )
+//   }
+// }
+
+// ReactDOM.render(
+//   <Index />,
+//   document.getElementById('root')
+// )
 
 
+// 3. 
+
+// class Header extends Component {
+//   constructor () {
+//     super()
+//     console.log('construct')
+//   }
+
+//   componentWillMount () {
+//     console.log('component will mount')
+//   }
+
+//   componentDidMount () {
+//     console.log('component did mount')
+//   }
+
+//   componentWillUnmount() {
+//     console.log('component will unmount')
+//   }
+
+//   render () {
+//     console.log('render')
+//     return (
+//       <div>
+//         <h1 className='title'>React 小书</h1>
+//       </div>
+//     )
+//   }
+// }
+
+// class Index extends Component {
+//   constructor() {
+//     super()
+//     this.state = {
+//       isShowHeader: true
+//     }
+//   }
+
+//   handleShowOrHide () {
+//     this.setState({
+//       isShowHeader: !this.state.isShowHeader
+//     })
+//   }
+
+//   render () {
+//     return (
+//       <div>
+//         {this.state.isShowHeader ? <Header /> : null}
+//         <button onClick={this.handleShowOrHide.bind(this)}>
+//           显示或者隐藏标题
+//         </button>
+//       </div>
+//     )
+//   }
+// }
+
+// ReactDOM.render(
+//   <Index />,
+//   document.getElementById('root')
+// )
 
 
+// 4.
 
+class Clock extends Component {
+  constructor () {
+    super()
+    this.state = {
+      date: new Date()
+    }
+  }
 
+  componentWillMount () {
+    this.timer = setInterval(() => {
+      this.setState({ date: new Date() })
+    }, 1000)
+  }
 
+  componentWillUnmount () {
+    clearInterval(this.timer)
+  }
 
-
-
-
-
-
-
-
-const users = [
-  { username: 'Jerry', age: 21, gender: 'male' },
-  { username: 'Tomy', age: 22, gender: 'male' },
-  { username: 'Lily', age: 19, gender: 'female' },
-  { username: 'Lucy', age: 20, gender: 'female' }
-]
-
-class User extends Component {
   render () {
-    const { user } = this.props;
     return (
       <div>
-        <div>姓名：{user.username}</div>
-        <div>年龄：{user.age}</div>
-        <div>性别：{user.gender}</div>
-        <hr />
+        <h1>
+          <p>现在的时间是</p>
+          {this.state.date.toLocaleTimeString()}
+        </h1>
       </div>
     )
   }
 }
 
 class Index extends Component {
+  constructor () {
+    super()
+    this.state = { isShowClock: true }
+  }
+
+  handleShowOrHide () {
+    this.setState({
+      isShowClock: !this.state.isShowClock
+    })
+  }
+
   render () {
     return (
       <div>
-        {/* 通过 props 把 user 数据作为组件的配置参数传进去 */}
-        {users.map((user,i) => <User key={i} user={user} />)}
+        {this.state.isShowClock ? <Clock /> : null }
+        <button onClick={this.handleShowOrHide.bind(this)}>
+          显示或隐藏时钟
+        </button>
       </div>
     )
   }
