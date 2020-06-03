@@ -11,7 +11,7 @@ const Root = function(){
       <div>
         <Route path="/" exact component={Main} />
         <Route path="/search/:searchTerm" component={Main} />
-        <Route path="/beer/:beerID/:beerSlug" component={Single} />
+        <Route path="/beer/:beerId/:beerSlug" component={Single} />
       </div>
     </BrowserRouter>
   )
