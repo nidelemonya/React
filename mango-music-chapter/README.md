@@ -10,5 +10,12 @@
     提升网站的用户体验，当我们点击路由时，不会重新刷新整个页面，而是根据路由的配置，把相应的组件显示出来。
 - HashRouter http://localhost:3000/#/
 - BrowserRouter http://localhost:3000/
-- 根据页面，分析出不同的
+- 根据界面，分析出不同的头尾， 中间内容根据Route 匹配
+- Loading 组件 在整个应用中是什么地位？
+    containers 
+    components 路由级别组件
+    Loading 服务于任何listAPI 列表组件 通用组件
 
+    1. 数据请求阶段， 显示loading，
+    2. 数据来了后， 隐藏他，
+    父组件 要给loading 传参
