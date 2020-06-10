@@ -50,7 +50,7 @@ class Ranking extends React.Component {
                                                     <div className="top-song" key={index}>
                                                         <span className="index">{index + 1}</span>
                                                         <span>{song.songname}</span>
-                                            &nbsp;-&nbsp;
+                                                        &nbsp;-&nbsp;
                                                         <span className="song">{song.singername}</span>
                                                     </div>
                                                 )
