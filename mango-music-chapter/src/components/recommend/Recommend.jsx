@@ -2,9 +2,12 @@ import React from 'react';
 import './recommend.styl';
 import Swiper from 'swiper';
 import "swiper/css/swiper.min.css";
+import Album from '@/components/album/Album';
 import Loading from '../../common/loading/Loading';
 import Scroll from '@/common/scroll/Scroll';
 import Lazyload, { forceCheck } from 'react-lazyload'; // 图片延迟加载 适用于应用中很多图片
+import * as AlbumModel from '@/model/album';
+import { Route } from 'react-router-dom';
 
 // 1. 路由
 // 2. redux
@@ -62,16 +65,20 @@ class Recommend extends React.Component {
       .then(res => {
         // console.log('获取最新专辑')
         // console.log(res);
+        // model 前端 定义结构
+        // 不会加 model， 多加了一些业务代码在 component model
+        let albumList = res.albumlib.data.list;
+        // model
+        // albumList.sort()
         this.setState({
           loading: false,
-          newAlbums: res.albumlib.data.list
+          newAlbums: albumList
         }, () => {
           this.setState({
             refreshScroll: true
           })
         })
       })
-
 
     // setTimeout(() => {
     //   this.setState({
@@ -82,27 +89,32 @@ class Recommend extends React.Component {
   render() {
     // 切页面
     // console.log(this.state.newAlbums);
-    let albums = this.state.newAlbums.map(item => (
-      <div className="album-wrapper" key={item.album_id}>
-        <div className="left">
-          <Lazyload height={60}>
-            <img src="https://qpic.y.qq.com/music_cover/Iia3lpoTl2hPXtBpjHk9QiaqUplwwdfZdf48EHsTO7PgO18LnQ74BPdQ/300?n=1" alt={item.album_name} width="100%" height="100%" />
-          </Lazyload>
+    let { match } = this.props;
+    let albums = this.state.newAlbums.map(item => {
+      let album = AlbumModel.createAlbumByList(item);
+      // console.log(album);
+      return (
+        <div className="album-wrapper" key={album.id}
+          onClick={this.toAlbumDetail.bind(this, `${match.url + '/' + album.mId}`)}>
+          <div className="left">
+            <Lazyload height={60}>
+              <img src={album.img} alt={album.name} width="100%" height="100%" />
+            </Lazyload>
+          </div>
+          <div className="right">
+            <div className="album-name">
+              {album.name}
+            </div>
+            <div className="singer-name">
+              {album.singer}
+            </div>
+            <div className="public-time">
+              {album.public_time}
+            </div>
+          </div>
         </div>
-        <div className="right">
-          <div className="album-name">
-            {item.album_name}
-          </div>
-          <div className="singer-name">
-            {item.singers[0].singer_name}
-          </div>
-          <div className="public-time">
-            {item.public_time}
-          </div>
-        </div>
-      </div>
-    ))
-
+      )
+    })
     return (
       <div className="music-recommend">
         {/* <Scroll> 作为父组件 */}
@@ -138,8 +150,15 @@ class Recommend extends React.Component {
           </div>
         </Scroll>
         <Loading show={this.state.loading} title="正在加载..." />
+        <Route path={`${match.url + '/:id'}`} component={Album} />
       </div>
     )
+  }
+  toAlbumDetail(url) {
+    // console.log(url);
+    this.props.history.push({
+      pathname: url
+    })
   }
 }
 

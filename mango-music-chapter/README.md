@@ -1,3 +1,12 @@
+- 首页有问题，
+  给数据建模 这种情况下可以考虑 加model层
+  数据业务封装在model 里，
+  View Component 显示，
+  数据的改动， 由model 负责， 分层的好处
+
+  MVVM React 奥利奥 界面由数据驱动，前端的设计模式
+  MVC Model View Controller 后端web开发模式
+  
 1. 仿一个 音乐类的项目
 2. 上线的业务 思路 架构 技能点
 
