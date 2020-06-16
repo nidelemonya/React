@@ -7,10 +7,12 @@ class Home extends Component {
     }
     state = {  }
     render() { 
+        // console.log(this.props.homeList)
         return ( 
             <div>
                 Home
-                length: { this.props.homeList.length}
+                {/* 整个数据都是 immutable 所以要用size获取长度 */}
+                length: { this.props.homeList.size}
             </div>
          );
     }
@@ -20,6 +22,8 @@ class Home extends Component {
 // 过滤完结果(return) 都会由connect 传给你组件的 props
 
 const mapStateToProps = (state) => {
+    // console.log(state);
+    // 现在全体的数据都是 immutable
     return {
         homeList: state.getIn(['home', 'homeList'])
     }
