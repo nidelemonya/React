@@ -1,16 +1,17 @@
 import React, { Fragment, useState, createContext } from 'react';
 import './App.css';
 
-const context = createContext(); // 可以理解为特殊的state 跨层级传输
+const context = createContext(); // 可以理解为特殊的 state 跨层级传输
 // Consumer 相当于 connect
 // Provider 内部 使用 Consumer 都是合法的
 const { Provider, Consumer } = context;
+// const { Provider, Consumer } = createContext();
 
-// 有状态组件 stateFul => class state
-// 无状态组件 => function react16(hook 一系列的API，都以use开头 useXXX) state
+// 有状态组件:stateFul => class state
+// 无状态组件:stateLess => function react16(hook钩子函数 一系列的API，都以use开头 useXXX) state 叫做函数组件
 function Login(){
   return(
-    // <Consumer> 在哪用就在哪包起来
+    // <Consumer> 在哪里用就在哪里包起来
     <div>
       Login
       <Consumer>{
@@ -27,6 +28,7 @@ function Login(){
 }
 function Header(props) {
   // 类组件 this.props
+  // 函数组件 props 放到参数上面
   const { theme } = props;
   console.log(theme);
   return (
@@ -34,7 +36,7 @@ function Header(props) {
       Header
       {/* <Login theme={theme}/> */}
       <Login />
-      {/* Login 还有其他组件 <Avatar theme={theme}/> */}
+      {/* Login 里面还有其他组件，还要把theme传进去，这样很麻烦 <Avatar theme={theme}/> */}
     </div>
   )
 }
@@ -58,6 +60,7 @@ function App() {
   // let [s,set] = res;
   // Provider 提供
   // Consumer 消费
+  // [] 数组的解构
   const [ state, setTheme ] = useState({ theme1: 'orange', theme2: 'red'}); 
   console.log('state:',state);
   console.log('state.theme1:',state.theme1);
@@ -76,7 +79,7 @@ function App() {
       {/* Provider 内部的组件 才能获取 Provider 提供的数据
       用 Consumer 获取*/}
       <Fragment>
-        <Header theme={ state }/>
+        <Header theme={state}/>
         <Footer />
       </Fragment>
     </Provider>
