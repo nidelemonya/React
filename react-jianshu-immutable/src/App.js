@@ -2,8 +2,9 @@ import React from 'react';
 import ImmutableComponent from './components/common';
 import { BrowserRouter, Route } from 'react-router-dom';
 // 引入 store
-import store from './store'
+import store from './store';
 // 放到全局位置
+import './util/request.js';
 import { Provider } from 'react-redux';
 import Header from './components/Header';
 import Home from './pages/home';

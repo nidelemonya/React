@@ -15,11 +15,17 @@ import { GET_HOME_LIST } from '../constants';
 //   axios
 // })
 
-export const getHomeList = () => {
-  console.log(1);
-  // type: GET_HOME_LIST,
-  // homeList: [0, 1, 2, 3]
-}
+// export const getHomeList = {
+//   type: GET_HOME_LIST,
+//   // homeList: fromJS[0, 1, 2, 3]
+//   // console.log(1);
+// }
+
+export const homeListActionCreater = (homeList) => ({
+  type: GET_HOME_LIST,
+  homeList
+})
+
 
 // dispatch({
 
