@@ -17,7 +17,8 @@ import { GET_HOME_LIST } from '../constants';
 
 export const getHomeList = {
   type: GET_HOME_LIST,
-  homeList: [0, 1, 2, 3]
+  homeList: [0, 1, 2, 3,4],
+  a:[1,2,3,4,5]
 }
 
 // dispatch({

@@ -13,6 +13,7 @@ export default function(state = defaultState, action) {
   switch(action.type) {
     case GET_HOME_LIST:
       return {
+        // homeList: action.a
         homeList: action.homeList
       };
     default:

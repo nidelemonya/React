@@ -41,8 +41,8 @@ const mapDispatchToProps = (dispatch) => {
         }
     }
 }
-// 通过 connect 传给组件 相当于一个桥
+// 通过 connect 传给组件 相当于一个桥 connect 桥的功能
 // redux -> 桥 -> react
 // redux store -> react Provider 全局功能 每个组件都可以获取 
-// 规定 获取 redux 里面的数据 mapStateToProps 的返回值，connect 返回值放到 props
+// 规定：获取 redux 里面的数据，必须用 mapStateToProps 的返回值，connect 返回值放到 props
 export default connect(mapStateToProps,mapDispatchToProps)(Home);
