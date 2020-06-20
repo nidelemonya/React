@@ -15,6 +15,7 @@ let posts = [];
 //
 const LOGIN_STATUS = Symbol('login/change-login-status');
 const POSTS_STATUS = Symbol('posts/change-posts-status');
+// es6 默认赋初始值 state = isLogin
 function loginReducer(state = isLogin, action) {
   switch (action.type) {
     case LOGIN_STATUS:
@@ -59,7 +60,7 @@ console.log(store);
 // mapStateToProps
 console.log('now', store.getState());
 
-// action - reducer
+// action -> reducer
 
 // mapDispatchToProps
 store.dispatch(loginAction);
@@ -93,7 +94,7 @@ function Header(props) {
 
 // { login: true, posts=[]}
 // 从 全部 的 store 过滤一下 当前组件需要的一些数据
-// Consumer 来， 让我们用 connect
+// 本来是用Consumer 来取，但是它没有暴露出来，所以我们用 connect 取到想要的值。
 // 取到数据
 function mapStateToProps(state) {
     // 把你想要的数据 return 出来
@@ -104,6 +105,7 @@ function mapStateToProps(state) {
 // toProps
 // 修改数据
 function mapDispatch(dispatch) {
+  // 返回落脚点
     return{
         changeLoginStatus() {
             dispatch(loginAction)
