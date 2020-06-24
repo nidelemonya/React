@@ -6,6 +6,7 @@ import articleStore from './store/articleStore';
 import Home from './pages/home';
 import './util/request.js'
 import './App.css';
+import './index.css';
 
 const { Header, Content, Footer } = Layout;
 // 自己合并成一个对象

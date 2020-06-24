@@ -16,23 +16,32 @@ class ArticleStore  {
   // 逻辑 尽量写到 store
   // action： 修改你的state 必须发起一个 action
   @observable tags = [];
+  @observable isLoading = true;
+  @observable activityKey = 'all';
+  @observable pageCurrent = 1;
+  // 文章列表： tag 每页总数 第几页
   @action 
   getArticle(tag, offset = 0){
+    this.isLoading = true;
     axios.get('/articles', {
       params:{
-        tag: tag === 'all' ? null : tag,
-        offset,
+        tag: this.activityKey === 'all' ? null : this.activityKey,
+        offset: offset * LIMIT,
         limit: LIMIT
       }
     })
     .then(res => {
       // 修改 store 在这一步完成
+      // 仅仅修改了某个属性
       this.articles[tag] = res.articles
       this.total = res.articlesCount
+      this.isLoading = false;
     })
   }
   handleTabChange = (key) => {
     // console.log(key);
+    this.activityKey = key;
+    this.pageCurrent = 1;
     this.getArticle(key);
   }
   // {} action 想支持函数 中间件
@@ -42,6 +51,16 @@ class ArticleStore  {
       // 修改 state
       this.tags= res.tags;
     })
+  }
+  // 新加 tab
+  handleAddTab = (tab) => {
+    this.activityKey = tab;
+    this.articles[tab] = [];
+    this.pageCurrent = 1;
+    this.getArticle(tab);
+  }
+  handlePageChange = (page) => {
+    this.pageCurrent = page;
   }
 }
 

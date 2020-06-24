@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import { Tabs, Row, Col, Tag } from 'antd';
+import { Tabs, Row, Col, Tag, Spin } from 'antd';
 import { Pagination } from 'antd';
+import Articleitem from './ArticleItem';
 
 const { TabPane } = Tabs;
 // indect 注入
@@ -14,38 +15,34 @@ class Home extends Component {
         this.props.articleStore.getTags();
     }
     handlePaginationChange = (page) => {
-        const { articles } = this.props.articleStore;
-        Object.keys(articles).map((tag) => { this.props.articleStore.getArticle(`${tag}`, page - 1); return 0; })
+        // page 当前页数
         // console.log(page)
         // 1 offset 0
         // 2 offset 1
         // 3 offset 2
-        // this.props.articleStore.getArticle(`all`, page - 1);
+        const { activityKey } = this.props.articleStore
+        this.props.articleStore.getArticle(`${activityKey}`, page - 1);
+        this.props.articleStore.handlePageChange(page);
     }
     render() {
-        const { total, LIMIT, articles, handleTabChange, tags } = this.props.articleStore
+        const { total, LIMIT, articles, handleTabChange, handleAddTab, tags, isLoading, activityKey, pageCurrent } = this.props.articleStore
         return (
             <div>
                 <Row>
                     <Col span={19}>
-                        <Tabs defaultActiveKey={'all'} onChange={handleTabChange}>
+                        <Tabs defaultActiveKey={'all'} onChange={handleTabChange} activeKey={activityKey}>
                             {Object.keys(articles).map((tag, i) => {
                                 return (
                                     <TabPane key={tag} tab={tag}>
-                                        {
-                                            articles[tag].map((article, i) => {
-                                                return (
-                                                    <div key={i}>
-                                                        <h3>
-                                                            {article.title}
-                                                        </h3>
-                                                        <p>
-                                                            {article.body}
-                                                        </p>
-                                                    </div>
-                                                )
-                                            })
-                                        }
+                                        <Spin tip="正在加载中..." spinning={isLoading}>
+                                            {
+                                                articles[tag].map((article, i) => {
+                                                    return (
+                                                        <Articleitem key={i} article={article}></Articleitem>
+                                                    )
+                                                })
+                                            }
+                                        </Spin>
                                     </TabPane>
                                 )
                             })}
@@ -56,13 +53,16 @@ class Home extends Component {
                             total={total}
                             pageSize={LIMIT}
                             defaultCurrent={1}
-                            // current={1}
+                            current={pageCurrent}
                         />
                     </Col>
                     <Col span={5}>
                         {tags.map((tag, i) => {
+                            // tag 传到 handleAddTab 这个函数
                             return (
-                                <Tag color="lime" key={i}>{tag}</Tag>
+                                // <Tag key={i} onClick={handleAddTab.bind(this, tag)}>{tag}</Tag>
+                                // or
+                                <Tag key={i} onClick={() => { handleAddTab(tag) }}>{tag}</Tag>
                             )
                         })}
                     </Col>
