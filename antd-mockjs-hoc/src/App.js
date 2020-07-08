@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './App.styl';
 import { Table } from 'antd';
 
 // 全局的就可以 css 是一定要引入的
