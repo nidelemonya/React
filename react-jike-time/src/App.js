@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
 import TabPan from './Component/TabPan'
 import './mock/all.js';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
 
 const { Header, Content, Footer } = Layout;
 function App() {

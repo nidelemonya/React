@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Tabs } from 'antd';
 import Tab from '../Tab'
-import axios from 'axios';
 
 const { TabPane } = Tabs;
 

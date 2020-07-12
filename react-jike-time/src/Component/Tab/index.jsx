@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Table, Button } from 'antd';
-import { Avatar } from 'antd';
 class Tab extends Component {
   render() {
     const { list } = this.props;
@@ -19,7 +18,7 @@ class Tab extends Component {
         render: (e, res) =>
           <div>
             <h4>{e}</h4>
-            <h5>共{res.total}讲 | 已学 {res.already}讲 | 学完 {res.state !== '已学完' ? Number((res.already / res.total) * 100).toFixed(0) : 100}%</h5>
+            <h5>共{res.total}讲 | 已学 {res.state !== '已学完' ? res.already : res.total}讲 | 学完 {res.state !== '已学完' ? Number((res.already / res.total) * 100).toFixed(0) : 100}%</h5>
           </div>,
       },
       { title: '', dataIndex: 'tag', key: 'tag' },
