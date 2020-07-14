@@ -1,0 +1,39 @@
+.search {
+    position: relative;
+    width: 100%;;
+    background-color: rgb(235, 236, 238);
+    height: 2rem;
+    zoom: 1;
+    vertical-align: middle;
+    border-radius: 1rem;
+}
+
+.bn {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inp {
+    width: 17rem;
+    position: absolute;
+    display: block;
+    height: 2rem;
+    overflow: hidden;
+    left: 2rem;
+}
+
+.inp input {
+    border: none;
+    width: 90%;
+    background-color: rgb(235, 236, 238);
+    font-size: 1.2rem;
+    height: 1.4rem;
+    -webkit-appearance: none;
+    padding: 0.3rem;
+}

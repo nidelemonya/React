@@ -1,0 +1,21 @@
+.tab-bar{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    background: #fff;
+    bottom: 0rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tab{
+    flex: 1;
+    color: rgb(25, 194, 148);
+    width: 2rem;
+    margin: 0rem 0.5rem;
+}
+.tag {
+    background: #fff;
+    font-size: 0.7rem;
+}
