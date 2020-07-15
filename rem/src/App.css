@@ -1,0 +1,31 @@
+.App {
+  width: 200px;
+  height: 10px;
+  background-color: black;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.header {
+  padding: 15px 30px 28px 30px;
+  display: flex;
+}
+.header h2{
+  width: 137px;
+  height: 37px;
+  margin-right: 20px;
+}
+.header input {
+  height: 56px;
+  flex: 1;
+  outline: none;
+  border: none;
+  border: 1px solid red;
+  border-radius: 4px;
+}
+.header button {
+  margin-left: 19px;
+  width: 73px;
+  height: 41px;
+}
