@@ -17,7 +17,7 @@ function Header(props) {
     )
 }
 
-Header.PropType = {
+Header.propTypes = {
     title: PropTypes.string.isRequired
 }
 

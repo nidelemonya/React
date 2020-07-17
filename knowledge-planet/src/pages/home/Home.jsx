@@ -10,10 +10,8 @@ class Home extends Component {
         return ( 
             <div>
                 <Header title="知识星球"/>
-                <div className="container">
-                    <Search/>
-                    <Center/>
-                </div>
+                <Search/>
+                <Center/>
                 <Footer tag={{tag1:'星球',tag2:'动态',tag3:'发现',tag4:'我'}}/>
             </div>
          );

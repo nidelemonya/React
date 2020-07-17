@@ -1,0 +1,61 @@
+.create-wrapper{
+    position:relative;
+    top: 2rem;
+}
+.create-header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.0rem;
+}
+.cancel {
+    position: absolute;
+    left: 0.2rem;
+}
+.next {
+    position: absolute;
+    right: 0.2rem;
+    width: 4.5rem;
+    height: 1.5rem;
+    text-align: center;
+    background-color: green;
+    border-radius: 0.8rem;
+}
+.upload{
+    width: 11rem;
+    height: 11rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin: auto;
+}
+.create-imgbox{
+    width: 100%;
+    height: 100%;
+}
+.create-imgbox img {
+    width: 100%;
+}
+.input-bar {
+    position: relative;
+    top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 5rem;
+    margin: auto;
+}
+.input-bar input{
+    width: 100%;
+    height: 3rem;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: rgb(235, 236, 238);
+}

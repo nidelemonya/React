@@ -1,0 +1,9 @@
+html {
+    /* 用 rem就给html设置font-size，用 em就给body设置font-size */
+    font-size: 18.75px;
+}
+
+body {
+    /* overflow-x: hidden; */
+    overflow-y: scroll;
+}

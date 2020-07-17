@@ -1,11 +1,12 @@
 .search {
     position: relative;
-    width: 100%;;
+    width: 90%;
     background-color: rgb(235, 236, 238);
     height: 2rem;
     zoom: 1;
     vertical-align: middle;
     border-radius: 1rem;
+    margin: auto;
 }
 
 .bn {
@@ -20,7 +21,7 @@
 }
 
 .inp {
-    width: 17rem;
+    width: 80%;
     position: absolute;
     display: block;
     height: 2rem;
@@ -29,11 +30,13 @@
 }
 
 .inp input {
+    /* 干掉 输入框默认样式 outline: none; border: none; */
+    outline: none;
     border: none;
     width: 90%;
     background-color: rgb(235, 236, 238);
-    font-size: 1.2rem;
-    height: 1.4rem;
+    font-size: 1.0rem;
+    height: 1.5rem;
     -webkit-appearance: none;
     padding: 0.3rem;
 }

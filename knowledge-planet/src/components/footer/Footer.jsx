@@ -7,26 +7,31 @@ export default function Footer(props) {
     console.log(props);
     return (
         <div className="tab-bar">
-            <div className="tab">
-                <div className="iconfont icon-iconset0456"></div>
-                <div className="tag">{tag.tag1}</div>
+            <div className="tab icon1">
+                <span className="icon iconfont icon-iconset0456"></span>
+                <p className="tag">{tag.tag1}</p>
             </div>
             <div className="tab">
-                <div className="iconfont icon-xiaoxi-"></div>
-                <div className="tag">{tag.tag2}</div>
+                <span className="icon iconfont icon-xiaoxi-"></span>
+                <p className="tag">{tag.tag2}</p>
             </div>
             <div className="tab">
-                <div className="iconfont icon-danyehuaban"></div>
-                <div className="tag">{tag.tag3}</div>
+                <span className="icon iconfont icon-danyehuaban"></span>
+                <p className="tag">{tag.tag3}</p>
             </div>
             <div className="tab">
-                <div className="iconfont icon-wo"></div>
-                <div className="tag">{tag.tag4}</div>
+                <span className="icon iconfont icon-wo"></span>
+                <p className="tag">{tag.tag4}</p>
             </div>
         </div>
     )
 }
 
+
+
+
+
+  
 Footer.PropType = {
     tag: PropTypes.object.isRequired
 }

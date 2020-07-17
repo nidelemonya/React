@@ -9,23 +9,23 @@ class Center extends Component {
             {
                 title:'视界',
                 name:'顾中正',
-                image:'http://dmimg.5054399.com/allimg/pkm/pk/13.jpg',
+                image:'http://pic.netbian.com/uploads/allimg/200713/223214-159465073418c4.jpg',
                 state:1,
             },
             {
                 title:'畅聊科技教育',
                 name:'刘凤飞(果果老师)',
-                image:'http://dmimg.5054399.com/allimg/pkm/pk/13.jpg',
+                image:'http://pic.netbian.com/uploads/allimg/200713/223214-159465073418c4.jpg',
                 state:1,
             },{
                 title:'前端小课堂',
                 name:'路佳',
-                image:'http://dmimg.5054399.com/allimg/pkm/pk/13.jpg',
+                image:'http://pic.netbian.com/uploads/allimg/200713/223214-159465073418c4.jpg',
                 state:0,
             },{
                 title:'旅梦开发团',
                 name:'喻顺武 旅梦开发团',
-                image:'http://dmimg.5054399.com/allimg/pkm/pk/13.jpg',
+                image:'http://pic.netbian.com/uploads/allimg/200713/223214-159465073418c4.jpg',
                 state:0,
             }
         ]}
@@ -34,7 +34,7 @@ class Center extends Component {
         this.props.history.push('./create');
     }
     componentDidMount() {
-        console.log(...this.state.list);
+        // console.log(...this.state.list);
         localStorage.setItem('list',JSON.stringify(this.state.list));
     }
     render() {
@@ -56,6 +56,7 @@ class Center extends Component {
                 <div className="box box1">
                     <div className="img-box" onClick={this.createNewTab.bind(this)}>
                         <div className="plus-box iconfont icon-mui-icon-add"></div>
+                        <div className="box-title">创建星球</div>
                     </div>
                 </div>
             </div>

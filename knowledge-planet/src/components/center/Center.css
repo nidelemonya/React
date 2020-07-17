@@ -1,11 +1,12 @@
 .box-wrapper {
     display: flex;
     flex-wrap:wrap;
+    margin: 0.4rem;
 }
 .box {
     margin: 0.7rem 1rem;
-    width: 7.46rem;
-    height: 10rem;
+    width: 7.4rem;
+    height: 9.7rem;
     background: #fff;
     border: 0.01rem solid rgb(235, 236, 238);
     border-radius: 0.3rem;

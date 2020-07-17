@@ -9,37 +9,44 @@
 
 .iconfont {
   font-family: "iconfont" !important;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-iconset0456:before {
+  font-size: 1.5rem;
   content: "\e74f";
 }
 
 .icon-wo:before {
+  font-size: 1.5rem;
   content: "\e626";
 }
 
 .icon-icon-test:before {
+  font-size: 1.2rem;
   content: "\e620";
 }
 
 .icon-faxian:before {
+  font-size: 1.5rem;
   content: "\e63b";
 }
 
 .icon-xiaoxi-:before {
+  font-size: 1.5rem;
   content: "\e60c";
 }
 
 .icon-jiahao:before {
+  font-size: 1.2rem;
   content: "\e84f";
 }
 
 .icon-danyehuaban:before {
+  font-size: 1.5rem;
   content: "\e636";
 }
 
