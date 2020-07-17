@@ -5,7 +5,6 @@ import Search from '../../components/search/Search';
 import Center from '../../components/center/Center';
 import Footer from '../../components/footer/Footer';
 class Home extends Component {
-    state = {  }
     render() { 
         return ( 
             <div>

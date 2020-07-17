@@ -35,9 +35,14 @@ class Center extends Component {
     }
     componentDidMount() {
         // console.log(...this.state.list);
+        // 如果 localStorage 里面有数据了， 就不用存了， 直接返回
+        if(localStorage.getItem('list')) return
+        // 如果 localStorage 没有数据，初始化存一次
         localStorage.setItem('list',JSON.stringify(this.state.list));
     }
     render() {
+        console.log('getItem',JSON.parse(localStorage.getItem('list')))
+        // 判断本地 localStorage 有没有数据 有就用本地的 没有就用 this.state.list
         const  list  = localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : this.state.list
         return ( 
             <div className="box-wrapper">

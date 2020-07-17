@@ -8,6 +8,7 @@
     width: 7.4rem;
     height: 9.7rem;
     background: #fff;
+    overflow: hidden;
     border: 0.01rem solid rgb(235, 236, 238);
     border-radius: 0.3rem;
 }
