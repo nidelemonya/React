@@ -46,3 +46,25 @@
                 mapDispatch
             })(Component)
     - reducer
+        1. action 标准做法
+        - 返回 {type:,playload:} 更新 reducer 状态
+        - 组件里的事件 生命周期等功能 主要是和数据状态打交道， 归为 Action 来做
+        - 所有的 action export function
+          在组件里引入需要的 actions
+        - bindActionCreators
+          actions 变成本地调用的函数
+            dispatch
+        - useMemo 缓存函数
+        - connect 中第二个函数返回 action
+
+        两个action 思想的切换
+        修改的本质 redux
+
+- from to 的复盘
+    1. redux 编程思想
+        - reducers 纯函数 返回状态及接受状态的更新 只有一个状态与之相对应， switch case
+        - action actionsTypes
+            是更新reducer的使者， dispatch action
+        from to 都有独立的reducer 函数和action
+        - exchangeFromTo()
+            dispatch getState
