@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.linkage {
+  display: flex;
+}
+/* 左边固定 右边自适应 */
+
+nav {
+  width: 50px;
+}
+
+dt {
+  /* 吸顶 定位 */
+  position: sticky;
+  /* relative + fixed */
+  top: 0;
+  left: 0;
+  height: 36px;
+}
+
+dd {
+  height: 60px;
+}
+
+.tab-detail {
+  flex:1;
+  /* flex-grow, flex-shrink, flex-basis*/
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.active {
+  color: orange;
+}
