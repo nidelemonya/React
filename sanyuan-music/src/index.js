@@ -3,20 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { HashRouter } from 'react-router-dom';
-import { renderRoutes } from 'react-router-config';
-import routes from './routes/index';
-import { Provider } from 'react-redux';
-import store from './store';
+// 优化移动端 click 事件 把 click 事件变成 touch 事件 因为 移动端 click 事件有延迟 0.5s。
+import fastclick from 'fastclick';
+fastclick.attach(document.body);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <HashRouter>
-        { renderRoutes(routes) }
-      </HashRouter>
-    </Provider>
-  </React.StrictMode>,
+  <App/>,
   document.getElementById('root')
 );
 
