@@ -8,9 +8,10 @@ function PrivateRoute (props) {
     // auth
     const isLogin = authStore.isLogin;
     // react-router
+    // 权限保护 比较简洁的用法
     // 登录了进去 没登录把它重定向出来
     if (!isLogin) {
-        return <Redirect to="/login"/>
+        return <Redirect from={path} to="/login"/>
     }
     return (
         <Route path={path} component={component}></Route>
