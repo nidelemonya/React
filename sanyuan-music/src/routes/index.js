@@ -1,9 +1,23 @@
 // 路由 二级路由 嵌套
-import React from 'react';
+// React 自带路由懒加载 important
+import React, { lazy, Suspense } from 'react';
 import { Redirect } from 'react-router-dom';
-import Recommend from '../application/Recommend';
 import BlankLayout from '../layouts/BlankLayout';
 import HomeLayout from '../layouts/HomeLayout';
+// import Recommend from '../application/Recommend';
+// 懒加载 不会直接引入 ( 高阶组件 ) 性能优化
+const RecommendComponent = lazy(() => import('../application/Recommend'));
+const SingersComponent = lazy(() => import('../application/Singers'));
+// Suspense 悬念 -> 提前释放资源 ( 资源解冻过程 )
+const SuspenseComponent = Component => props => {
+    return (
+        // fallback 回滚事件
+        <Suspense fallback={ null }>
+            <Component {...props}>
+            </Component>
+        </Suspense>
+    )
+} 
 
 export default [
     {   
@@ -20,12 +34,15 @@ export default [
                     },
                     {
                         path:'/recommend',
-                        component: Recommend
+                        // component: Recommend
+                        component:SuspenseComponent(RecommendComponent)
                     },
-                    // {
-                    //     path:'/singers',
-                    //     component:SingersComponent
-                    // },
+                    {
+                        path:'/singers',
+                        // component:SingersComponent
+                        component:SuspenseComponent(SingersComponent),
+                        key:"singers"
+                    },
                     // {
                     //     path:'/rank',
                     //     component: RankComponent
