@@ -13,3 +13,16 @@ routes react-router-config renderRoutes(route.routes)
 
 
 styled 样式组件
+
+- search 业务
+    接口业务
+    - 热门搜索
+      url   /search/hot
+      参数 null
+      返回值 result.hot
+    - 搜索建议
+      /suggest?keyword=
+      参数 keyword
+      返回值 albums
+    - 搜索结果
+      /search?keyword=

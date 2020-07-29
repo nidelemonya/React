@@ -8,6 +8,8 @@ import HomeLayout from '../layouts/HomeLayout';
 // 懒加载 不会直接引入 ( 高阶组件 ) 性能优化
 const RecommendComponent = lazy(() => import('../application/Recommend'));
 const SingersComponent = lazy(() => import('../application/Singers'));
+// const SingerComponent = lazy(() => import('../application/Singer/'));
+const SearchComponent = lazy(() => import('../application/Search/'));
 // Suspense 悬念 -> 提前释放资源 ( 资源解冻过程 )
 const SuspenseComponent = Component => props => {
     return (
@@ -37,12 +39,23 @@ export default [
                         // component: Recommend
                         component:SuspenseComponent(RecommendComponent)
                     },
+                    // {
+                    //     path: "/singers",
+                    //     component: SuspenseComponent(SingersComponent),
+                    //     key: "singers",
+                    //     routes: [
+                    //       {
+                    //         path: "/singers/:id",
+                    //         component: SuspenseComponent(SingerComponent)
+                    //       }
+                    //     ]
+                    // },
                     {
-                        path:'/singers',
-                        // component:SingersComponent
-                        component:SuspenseComponent(SingersComponent),
-                        key:"singers"
-                    },
+                        path: "/search",
+                        exact: true,
+                        key: "search",
+                        component: SuspenseComponent(SearchComponent)
+                      }
                     // {
                     //     path:'/rank',
                     //     component: RankComponent
