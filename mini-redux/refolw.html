@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="a"></div>
+    <div id="b"></div>
+    <div id="c"></div>
+    <script>
+        const DomA = document.querySelector('#a')
+        const DomB = document.querySelector('#b')
+        const DomC = document.querySelector('#c')
+
+        function timer() {
+            // 前面没有任何对 DomA 样式的变更
+            DomA.style.width = 200+'px';
+            DomA.style.width = DomA.offsetWidth + 1 + 'px'
+            DomB.style.width = DomA.offsetWidth + 1 + 'px'
+            DomC.style.width = DomA.offsetWidth + 1 + 'px'
+
+            // width 最后执行一次 layout
+        }
+        setTimeout(() => {
+            timer()
+        },2000)
+    </script>
+</body>
+</html>
