@@ -17,6 +17,7 @@ const useState = (function() {
     if (!hooks[currentIndex]) hooks[currentIndex] = [];
     let hookState = hooks[currentIndex];
     hookState[0] = hookState[0] || initValue // 存着老的 state
+    // hooks[currentIndex][0] = hookState[0] || initValue // 存着老的 state
     function setState(newState) {
       hookState[0] = newState;
       render();

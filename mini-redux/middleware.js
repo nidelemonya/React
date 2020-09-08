@@ -25,13 +25,9 @@ function myFlow(...fns) {
     // }
     
     // 用 reduce 实现
-    return (str) => {
-        return fns.reduce((sum, e,i) => {
-            if (i === 0) {
-                return sum = e(str)
-            }else {
-                return sum = e(sum)
-            }
+    return (defaultVal) => {
+        return fns.reduce((sum, e, i) => {
+            return i === 0 ?sum = e(defaultVal) :sum = e(sum)
         },'')
     }
 }
