@@ -15,6 +15,7 @@ let action2 = {
 }
 
 function reducer(state = 1, action) {
+  // console.log('11111') 打印日志
   switch(action.type) {
       case 'INCREMENT': return state + 1
       case 'DECREMENT': return state - 1
