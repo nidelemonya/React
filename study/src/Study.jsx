@@ -8,39 +8,39 @@ class Study extends Component {
         }
     }
 
-    componentDidMount() {
-        this.setState({
-            number : this.state.number + 1
-        })
-        console.log(this.state.number)
-        this.setState({
-            number : this.state.number + 1
-        })
-        this.setState({
-            number : this.state.number + 1
-        })
-        console.log(this.state.number)
-    }
-
     // componentDidMount() {
-    //     this.setState((prevstate) => {
-    //         return {
-    //             number: prevstate.number + 1
-    //         }
+    //     this.setState({
+    //         number : this.state.number + 1
     //     })
     //     console.log(this.state.number)
-    //     this.setState((prevstate) => {
-    //         return {
-    //             number: prevstate.number + 1
-    //         }
+    //     this.setState({
+    //         number : this.state.number + 1
+    //     })
+    //     this.setState({
+    //         number : this.state.number + 1
     //     })
     //     console.log(this.state.number)
-    //     this.setState((prevstate) => {
-    //         return {
-    //             number: prevstate.number + 1
-    //         }
-    //     })
     // }
+
+    componentDidMount() {
+        this.setState((prevstate) => {
+            return {
+                number: prevstate.number + 1
+            }
+        })
+        console.log(this.state.number)
+        this.setState((prevstate) => {
+            return {
+                number: prevstate.number + 1
+            }
+        })
+        console.log(this.state.number)
+        this.setState((prevstate) => {
+            return {
+                number: prevstate.number + 1
+            }
+        })
+    }
 
     render() {
         const { number } = this.state
