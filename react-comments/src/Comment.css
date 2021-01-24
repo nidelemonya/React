@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.comment{
+  padding: 16px;
+  background: #E5E5E5;
+  display: flex;
+  flex-direction: column;
+}
